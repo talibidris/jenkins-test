@@ -6,7 +6,7 @@ def workspace = "${home}/workspace/build-docker-jenkins"
 def workdir = "${workspace}/src/localhost/docker-jenkins/"
 
 def ecrRepoName = "my-jenkins"
-def tag = "$ecrRepoName:latest"
+def tag = "reponame:latest"
 
 podTemplate(label: label,
         containers: [
@@ -28,7 +28,7 @@ podTemplate(label: label,
             stage('Docker Build') {
                 container('docker') {
                     echo "Building docker image..."
-                    sh "docker build -t $tag -f jenkins-docker/Dockerfile ."
+                    sh "docker build -t $tag -f ./Dockerfile ."
                 }
             }
         }
