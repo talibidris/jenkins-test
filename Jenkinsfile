@@ -28,7 +28,7 @@ podTemplate(label: label,
             stage('Docker Build') {
                 container('docker') {
                     echo "Building docker image..."
-                    sh "docker build -t $tag -f ./Dockerfile ."
+                    sh "docker build ."
                 }
             }
         }
