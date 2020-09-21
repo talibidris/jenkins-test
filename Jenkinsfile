@@ -28,6 +28,7 @@ podTemplate(label: label,
             stage('Docker Build') {
                 container('docker') {
                     echo "Building docker image..."
+                    sh "ls -lah"
                     sh "docker build --network=host ."
                 }
             }
